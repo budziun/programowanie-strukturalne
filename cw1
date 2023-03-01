@@ -129,7 +129,6 @@ int main()
 return 0;
 }
 //program ktory liczy pole trojkata
-
 int main()
 {
     int a,b,c,h,w;
