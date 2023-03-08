@@ -1,0 +1,154 @@
+//zadanie dodatkowe
+/// foto z tele
+#include <stdio.h>
+
+//1 * 49 = 7^2
+// 2*50 = 100 - 10^2
+// szukamy par w ktorych iloczyn tych liczb to kwadrat licb
+// zakres do 1000
+
+int main()
+{
+    int i,j,kwadrat,wynik;
+    int ile;
+    for(i=1;i<1000;i++){
+        for(j=i+1;j<1000;j++){
+            while(i*j==k*k)
+        }
+    }
+    printf("%d wynikow",ile);
+    return 0;
+}
+//liczby idealne
+
+//wypisywacz liczb pierwszych
+
+//n wczytuje i wypisuje wartosc bezwzgledna
+int bezwzgledna(int n){
+    if(n>0){
+        return n;
+    }
+    else{
+       return -n;
+    }
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    printf("|%d|= %d",n,bezwzgledna(n));
+    return 0;
+}
+//silnia z n
+unsigned int silnia(unsigned int n){
+    unsigned int wynik=1;
+    for(int i=2;i<=n;i++){
+            wynik=wynik*i;
+    }
+    return wynik;
+}
+int main()
+{
+    unsigned int n;
+    scanf("%d",&n);
+    printf("%d!= %d",n,silnia(n));
+    return 0;
+}
+//funkcja wykladniczna 2 do n
+// 2 do 0 =1 , wieksza to
+unsigned int dwa_do_potegi(unsigned int x){
+if(x==0)
+    return 1;
+        return 2*dwa_do_potegi(x-1);
+}
+int main()
+{
+    unsigned int n;
+    scanf("%d",&n);
+    printf("2^%d= %d",n,dwa_do_potegi(n));
+    return 0;
+}
+//z liczbami ujemnymi
+float dwa_do_potegi(int x){
+if(x==0)
+     return 1;
+    else if(x>0)
+        return 2*dwa_do_potegi(x-1);
+        else
+            return 1/dwa_do_potegi(-x);
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    printf("2^%d= %f",n,dwa_do_potegi(n));
+    return 0;
+}
+//podloga pierwiastka z n
+/// 7 => 2
+/// 130 => 11
+/// 16 => 4
+int podloga(int n){
+    int wynik=0;
+    int i;
+    for(i=1;i*i<=n;i++){
+        if(i*i<=n){
+            wynik=i;
+        }
+    }
+    return wynik;
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    printf("podloga z pierwiastka = %d",podloga(n));
+    return 0;
+}
+//dla n wyrzucamy sume poglog
+int podloga(int n){
+    int wynik=0;
+    int i;
+    for(i=1;i*i<=n;i++){
+        if(i*i<=n){
+            wynik=i;
+        }
+    }
+    return wynik;
+}
+int suma_pod(int n){
+    int wynik=0;
+    for(int i=1;i<=n;i++){
+        wynik+=podloga(i);
+    }
+    return wynik;
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    printf("suma podlog z pierwiastka = %d",suma_pod(n));
+    return 0;
+}
+//dodatnie n zwraca rozklady liczby n a^2+b^2=n
+///10 3^2+1^2=10
+///50 5^2+5^2=50
+///7  nic
+void rozklad(unsigned int n){
+    int a,b;
+    for(a=1;a<=n;a++){
+        for(b=a;b<=n;b++){
+            if(a*a+b*b==n){
+                printf("(%d,%d)",a,b);
+            }
+        }
+    }
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    rozklad(n);
+    return 0;
+}
+
