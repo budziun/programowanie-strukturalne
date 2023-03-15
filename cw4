@@ -1,0 +1,197 @@
+#include <stdio.h>
+//zad 17 hehe
+/// funkcja wyswietla ile razy zostala wywolana
+void zlicz(){
+    static int liczba=0;
+    liczba++;
+    printf("Ta funkcja wywolano %d razy\n",liczba);
+}
+int main()
+{
+    zlicz();
+    zlicz();
+    zlicz();
+    zlicz();
+    zlicz();
+    zlicz();
+    return 0;
+}
+//zad 19
+/// wczytuje int i zwraca ja jako swoja wartosc i zsumowac wszystkie jej wartosci
+int sumaa(int liczba){
+    static int suma=0;
+    suma=suma+liczba;
+    printf("suma wynosi %d\n",suma);
+    return liczba;
+}
+int main()
+{
+    sumaa(5);
+    sumaa(8);
+    sumaa(3);
+    sumaa(2);
+    sumaa(1);
+    return 0;
+}
+/// silnia rekurencyjnie
+int silnia(int liczba){
+    if (liczba==0) return 1;
+    return liczba*silnia(liczba-1);
+}
+int main()
+{
+    printf("%d",silnia(5));
+    return 0;
+}
+/// ciag zdefiniowany rekurencyjnie wypisujacy wyrazy ciagu zad 21
+/// wyraz 0=1, wyraz a n+1=2*an+5
+/// 1 7 19 43 91
+int ciag(int liczba){
+    if (liczba==0) return 1;
+    return 2*ciag(liczba-1)+5;
+}
+int main()
+{
+    for(int i=0;i<10;i++){
+        printf("a_%d = %d \n",i,ciag(i));
+    }
+    return 0;
+}
+/// an+2=an+1+2an+3
+/// wyraz 0=1, wyraz a n+1=2*an+5
+/// 1 1 6 11 26
+int ciag(int liczba){
+    if (liczba==0 || liczba==1) return 1;
+    return ciag(liczba-1)+2*ciag(liczba-2)+3;
+}
+int main()
+{
+    for(int i=0;i<10;i++){
+        printf("a_%d = %d \n",i,ciag(i));
+    }
+    return 0;
+}
+/// zad 23, ciag tribonachciego dla pierwszych 10
+int fib(int liczba){
+    if (liczba<=2) return 1;
+    return fib(liczba-1)+fib(liczba-2)+fib(liczba-3);
+}
+int main()
+{
+    int i;
+    for(i=0;i<10;i++){
+        printf("%d ",fib(i));
+    }
+    return 0;
+}
+/// ciag 1 2 3 6 12 24
+int sumaa(int liczba){
+    if (liczba==0)
+    return 1;
+    else if(liczba==1)
+        return 2;
+    int wynik=0;
+    int i;
+    for(i=0;i<liczba;i++){
+        wynik=wynik+sumaa(i);
+    }
+    return wynik;
+}
+int main()
+{
+    printf("%d",sumaa(2));
+    return 0;
+}
+/// ciag 1 1 3
+// n parzyste:
+/// an=an-1+n
+// n nieparzyste
+/// an=an-1*n
+int wyraz(int n){
+    if(n<=1) return 1;
+    if(n%2==0){
+        return wyraz(n-1)+n;
+    }
+    else{
+        return wyraz(n-1)*n;
+    }
+}
+int main()
+{
+    printf("%d",wyraz(4));
+    return 0;
+}
+/// ciag 1 1 1 2 14 15 29 149
+///a3n= a3n-1+a3n-2
+///a5n+1=5a3n+4
+int wyraz(int n){
+    if(n<=2) return 1;
+    if(n%3==0){
+        return wyraz(n-1)+wyraz(n-2);
+    }
+    else if(n%3==1){
+        return 5*wyraz(n-1)+4;
+    }
+    else return wyraz(n-1)+1;
+}
+int main()
+{
+    for(int i=0;i<10;i++){
+        printf("%d  ",wyraz(i));
+    }
+    return 0;
+}
+/// ciag fibonaciego startujacy od tego co chcemy
+int wyraz(int n,int x,int y){
+    if(n==0) return x;
+    if(n==1) return y;
+    return wyraz(n-1,x,y)+wyraz(n-2,x,y);
+}
+int main()
+{
+    int i;
+    int x=2;
+    int y=7;
+    for(int i=0;i<10;i++){
+        printf("%d ",wyraz(i,x,y));
+    }
+    return 0;
+}
+/// ciag taki dziwny
+int wyraz(int n,int x){
+    if (n==0) return x;
+    if(wyraz(n-1,x)%2==0){
+    return wyraz(n-1,x)/2;
+    }
+    else{
+        return 3*wyraz(n-1,x)+1;
+    }
+}
+int main()
+{
+    int i;
+    int x=100;
+    for(int i=0;i<30;i++){
+        printf("%d ",wyraz(i,x));
+        if(wyraz(i,x)==1){
+            break;
+        }
+    }
+    return 0;
+}
+/// f(n,0)-n
+/// f(0,m)=m
+/// f(n,m)=f(n-1,m)+f(n,m-1)+f(n-1,m-1)
+int wyraz(int n,int m){
+    if(m==0)
+        return n;
+    else if(n==0)
+        return m;
+    else
+        return wyraz(n-1,m-1)+wyraz(n-1,m)+wyraz(n,m-1);
+}
+int main()
+{
+    printf("wynik: %d ",wyraz(2,1));
+    return 0;
+}
