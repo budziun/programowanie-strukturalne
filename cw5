@@ -1,0 +1,157 @@
+// wskazniki
+int liczba=505;
+    printf("Wartosc zmiennej to: %d\n",liczba);
+    printf("Adres zmiennej to: %p\n\n",&liczba);
+    int *wskaznik=&liczba;
+    printf("wartosc zmiennej to: %d\n",liczba);
+    printf("Adres zmiennej to: %p\n",&liczba);
+    printf("Adres przechowywany w wskazniku to: %p\n",wskaznik);
+    printf("Wskazywana wartosc to: %d\n",&wskaznik);
+}
+#include <stdio.h>
+int podwoj(int *x){
+*x=2*(*x);
+return *x;
+}
+
+int main()
+{
+    int a=7;
+    printf("%d\n",podwoj(&a));
+    printf("%d",a);
+    return 0;
+}
+//napisz funkcje zwracajaca mniejsza wartosc wskaznika
+int mniejsza(int *x,int *y){
+if(*x < *y){
+    return *x;
+}
+return *y;
+}
+
+
+int main()
+{
+    int a=7;
+    int b=4;
+    printf("%d\n",mniejsza(&a,&b));
+    return 0;
+}
+//napisz funkcje zwraca wskaznik na zmienna przechowujaca mniejsza z liczb przechowujaca
+int mniejsza(int *x,int *y){
+if(*x < *y){
+    return x;
+}
+return y;
+}
+
+
+int main()
+{
+    int a=7;
+    int b=4;
+    printf("%p\n",&a);
+    printf("%p\n",&b);
+    printf("%p\n",mniejsza(&a,&b));
+    return 0;
+}
+//funkcja swap, dwa arguemty dwa adresy
+// zamienic wartosci wskazywanych zmiennych
+void swap(int *x,int *y){
+int temp;
+temp = y;
+y=x;
+x=temp;
+printf("x: %p\n",x);
+printf("y: %p\n",y);
+}
+
+
+int main()
+{
+    int a=7;
+    int b=24;
+    printf("%p\n",&a);
+    printf("%p\n",&b);
+    swap(&a,&b);
+    return 0;
+}
+//funkcja swap tylko wtedy gdy wskazywana przez drugi argument zmienna jest mniejsza;
+void swap(int *x,int *y){
+if(*x>*y){
+int temp;
+temp = *y;
+*y=*x;
+*x=temp;
+}
+}
+
+
+int main()
+{
+    int a=7;
+    int b=24;
+    printf("a=%d\n",a);
+    printf("b=%d\n",b);
+    swap(&a,&b);
+    printf("a=%d\n",a);
+    printf("b=%d\n",b);
+    return 0;
+}
+//funkcja swap tylko wtedy gdy wskazywana przez drugi argument zmienna jest mniejsza;
+int suma(const int *x,const int *y){
+   return*x+ *y;
+}
+int main()
+{
+    const int a=37;
+    const int b=24;
+    printf("%d",suma(&a,&b));
+    return 0;
+}
+//funkcja przepisz
+void przepisz(int n,int *x){
+    *x=n;
+}
+int main()
+{
+    int a=37;
+    przepisz(15,&a);
+    printf("%d",a);
+    return 0;
+}
+//NAPISZ BEZ argumetowa funkcje ktora rezerwuje pamiec dla pojedynczej zmiennej typu int
+int* rezerwuj(){
+    return malloc(sizeof(int));
+}
+int main()
+{
+    int * wsk=rezerwuj();
+    printf("%p",wsk);
+    return 0;
+}
+//NAPISZ BEZ argumetowa funkcje ktora rezerwuje pamiec dla pojedynczej zmiennej typu int
+float* rezerwuj_floata(){
+    return malloc(sizeof(float));
+}
+int main()
+{
+    float * wsk=rezerwuj_floata();
+    printf("%p",wsk);
+    return 0;
+}
+#include <stdio.h>
+void przespisz_stala(const int* x,int* y){
+
+}
+
+int main()
+{
+    const int a=5;
+int b=19;
+    przespisz_stala(&a,&b);
+    printf("a=%d",a);
+    printf("b=%d",b);
+    return 0;
+}
+// dokonczyc to ^^
