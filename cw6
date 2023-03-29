@@ -1,0 +1,242 @@
+#include <stdio.h>
+
+/// funkcja prz
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int main()
+{
+    printf("Hello world!\n");
+    int rozmiar=4;
+int tab[rozmiar];
+tab[0]=6; tab[1]=2; tab[2]=5; tab[3]=8;
+wypisz(rozmiar,tab);
+printf("%d\n",*tab);
+    return 0;
+}
+
+
+/// nadaje wartosc 0 wszystkim elementom tablicy
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void zeruj(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+tab[i]=0;
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void indeks(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+tab[i]=i;
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+
+void podwoj(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]*2);
+}
+printf("\n");
+}
+/// dokonczyc to na dole
+void bezw(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]*2);
+}
+printf("\n");
+}
+int main()
+{
+    printf("Hello world!\n");
+    int rozmiar=5;
+int tab[rozmiar];
+tab[0]=6; tab[1]=2; tab[2]=5; tab[3]=8; tab[4]=9;
+wypisz(rozmiar,tab);
+zeruj(rozmiar,tab);
+indeks(rozmiar,tab);
+tab[0]=6; tab[1]=2; tab[2]=5; tab[3]=8; tab[4]=9;
+podwoj(rozmiar,tab);
+return 0;
+}
+int suma(unsigned int n,int * tab){
+ int suma=0;
+ for(int i=0;i<n;i++){
+    suma=suma+tab[i];
+}
+return suma;
+}
+printf("suma: %d\n",suma(5,tab));
+
+/// srednia geometryczna
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+float sredniag(unsigned int n,int * tab){
+ float suma=1;
+ for(int i=0;i<n;i++){
+    suma=suma*tab[i];
+}
+return pow(suma,1.0/n);
+}
+int main()
+{
+    printf("Hello world!\n");
+int tab[]={6,2,5,8,9};
+wypisz(5,tab);
+printf("srednia geometryczna: %f \n",sredniag(5,tab));
+return 0;
+} 
+//srednia h dokonczyc
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+/// sito er
+void wypisz(unsigned int n,bool * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int sito(unsigned int n){
+bool tab[n];
+for(int i=0;i<n;i++){
+    tab[i]=true;
+}
+int j,k;
+for(j=2;j<n;j++){
+    if(tab[j]){
+            for(k=2*j;k<n;k=k+j){
+                tab[k]=false;
+            }
+}
+}
+int x=n;
+for(int x=n;x>0;x--){
+    if(tab[x]==true){
+        return x;
+    }
+}
+}
+int main()
+{
+printf("%d",sito(100));
+return 0;
+}
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+/// sito er ile
+void wypisz(unsigned int n,bool * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int sito(unsigned int n){
+bool tab[n];
+for(int i=0;i<n;i++){
+    tab[i]=true;
+}
+int j,k;
+for(j=2;j<n;j++){
+    if(tab[j]){
+            for(k=2*j;k<n;k=k+j){
+                tab[k]=false;
+            }
+}
+}
+int x=n;
+int ile;
+for(int x=n;x>1;x--){
+    if(tab[x]==true){
+        ile++;
+    }
+}
+return ile;
+}
+int main()
+{
+printf("%d",sito(100));
+return 0;
+}
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+///przepisz
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void przepisz(unsigned int n,int * tab1,int * tab2){
+int i;
+for(i=0;i<n;i++){
+tab2[i]=tab1[i];
+}
+printf("\n");
+}
+
+int main()
+{
+int tab1[]={8,4,5,2,7};
+int tab2[]={6,1,7,2,8};
+wypisz(5,tab1);
+wypisz(5,tab2);
+przepisz(5,tab1,tab2);
+wypisz(5,tab1);
+wypisz(5,tab2);
+return 0;
+}
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+/// przepisz w odwrotnej kolejnosci
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void przepisz(unsigned int n,int * tab1,int * tab2){
+int i;
+for(i=0;i<n;i++){
+tab2[i]=tab1[n-1-i];
+}
+printf("\n");
+}
+
+int main()
+{
+int tab1[]={8,4,5,2,7};
+int tab2[]={6,1,7,2,8};
+wypisz(5,tab1);
+wypisz(5,tab2);
+przepisz(5,tab1,tab2);
+wypisz(5,tab1);
+wypisz(5,tab2);
+return 0;
+}
