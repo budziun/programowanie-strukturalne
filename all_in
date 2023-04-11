@@ -844,3 +844,126 @@ int main()
     printf("%f\n",funkcja(wskaznikdofunkcji,5));
     return 0;
 }
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int main()
+{
+    int rozmiar=4;
+int tab[rozmiar];
+tab[0]=6; tab[1]=2; tab[2]=5; tab[3]=8;
+wypisz(rozmiar,tab);
+printf("%d\n",*tab);
+    return 0;
+}
+/// nadaje wartosc 0 wszystkim elementom tablicy
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void zeruj(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+tab[i]=0;
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int main()
+{
+    int rozmiar=4;
+int tab[rozmiar];
+tab[0]=6; tab[1]=2; tab[2]=5; tab[3]=8;
+wypisz(rozmiar,tab);
+zeruj(rozmiar,tab);
+return 0;
+}
+// podwojona tablica  i tablica bezwzgledna
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void podwoj(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]*2);
+}
+printf("\n");
+}
+void bezw(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",abs(tab[i]));
+}
+printf("\n");
+}
+int main()
+{
+    printf("Hello world!\n");
+    int rozmiar=5;
+int tab[rozmiar];
+tab[0]=-6; tab[1]=2; tab[2]=5; tab[3]=8; tab[4]=9;
+wypisz(rozmiar,tab);
+podwoj(rozmiar,tab);
+bezw(rozmiar,tab);
+return 0;
+}
+//suma elementow tablicy
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int suma(unsigned int n,int * tab){
+ int suma=0;
+ for(int i=0;i<n;i++){
+    suma=suma+tab[i];
+}
+return suma;
+}
+int main()
+{
+    printf("Hello world!\n");
+    int rozmiar=5;
+int tab[rozmiar];
+tab[0]=-6; tab[1]=2; tab[2]=5; tab[3]=8; tab[4]=9;
+wypisz(rozmiar,tab);
+printf("suma tablicy= %d",suma(rozmiar,tab));
+return 0;
+}
+/// srednia geometryczna
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+float sredniag(unsigned int n,int * tab){
+ float suma=1;
+ for(int i=0;i<n;i++){
+    suma=suma*tab[i];
+}
+return pow(suma,1.0/n);
+}
+int main()
+{
+    printf("Hello world!\n");
+int tab[]={6,2,5,8,9};
+wypisz(5,tab);
+printf("srednia geometryczna: %f \n",sredniag(5,tab));
+return 0;
+} 
+
