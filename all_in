@@ -1,6 +1,7 @@
 // pakiety wymagane
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 
 printf("tekst i typ",parametr)
 scanf("tekst i typ",parametr)
@@ -966,4 +967,150 @@ wypisz(5,tab);
 printf("srednia geometryczna: %f \n",sredniag(5,tab));
 return 0;
 } 
+//srednia harmoniczna
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+float sredniaharmoniczna(unsigned int n, int * tab){
 
+int i;
+    float s = 0;
+    for(i=0;i<n;i++){
+        s = s + (1.0/tab[i]);
+    }
+    return n/s;
+}
+int main()
+{
+    printf("cw 4.2.4\n\n");
+    unsigned int tab[] = {8, 2, 5, 1, 9};
+    wypisz(5, tab);
+    printf("Srednia harmoniczna: %f\n",sredniaharmoniczna(5, tab));
+    return 0;
+}
+/// sito er
+void wypisz(unsigned int n,bool * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int sito(unsigned int n){
+bool tab[n];
+for(int i=0;i<n;i++){
+    tab[i]=true;
+}
+int j,k;
+for(j=2;j<n;j++){
+    if(tab[j]){
+            for(k=2*j;k<n;k=k+j){
+                tab[k]=false;
+            }
+}
+}
+int x=n;
+for(int x=n;x>0;x--){
+    if(tab[x]==true){
+        return x;
+    }
+}
+}
+int main()
+{
+printf("%d",sito(100));
+return 0;
+}
+/// sito er ile
+void wypisz(unsigned int n,bool * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+int sito(unsigned int n){
+bool tab[n];
+for(int i=0;i<n;i++){
+    tab[i]=true;
+}
+int j,k;
+for(j=2;j<n;j++){
+    if(tab[j]){
+            for(k=2*j;k<n;k=k+j){
+                tab[k]=false;
+            }
+}
+}
+int x=n;
+int ile;
+for(int x=n;x>1;x--){
+    if(tab[x]==true){
+        ile++;
+    }
+}
+return ile;
+}
+int main()
+{
+printf("%d",sito(100));
+return 0;
+}
+///przepisz
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void przepisz(unsigned int n,int * tab1,int * tab2){
+int i;
+for(i=0;i<n;i++){
+tab2[i]=tab1[i];
+}
+printf("\n");
+}
+
+int main()
+{
+int tab1[]={8,4,5,2,7};
+int tab2[]={6,1,7,2,8};
+wypisz(5,tab1);
+wypisz(5,tab2);
+przepisz(5,tab1,tab2);
+wypisz(5,tab1);
+wypisz(5,tab2);
+return 0;
+}
+/// przepisz w odwrotnej kolejnosci
+void wypisz(unsigned int n,int * tab){
+int i;
+for(i=0;i<n;i++){
+printf("%d\t",tab[i]);
+}
+printf("\n");
+}
+void przepisz(unsigned int n,int * tab1,int * tab2){
+int i;
+for(i=0;i<n;i++){
+tab2[i]=tab1[n-1-i];
+}
+printf("\n");
+}
+
+int main()
+{
+int tab1[]={8,4,5,2,7};
+int tab2[]={6,1,7,2,8};
+wypisz(5,tab1);
+wypisz(5,tab2);
+przepisz(5,tab1,tab2);
+wypisz(5,tab1);
+wypisz(5,tab2);
+return 0;
+}
