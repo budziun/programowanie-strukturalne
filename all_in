@@ -1189,4 +1189,230 @@ int main()
     printf("%d",kaluza(wysokoszc,n));
     return 0;
 }
-
+//suma tablic
+void sumatablic(unsigned int n,int * tab1,int * tab2, int * wynik){
+    for(int i=0;i<n;i++){
+        wynik[i]=tab1[i]+tab2[i];
+        printf("%d ",wynik[i]);
+    }
+}
+int main()
+{
+    int tab1[]={2,7,1,3};
+    int tab2[]={4,5,2,8};
+    int wynik[4];
+    sumatablic(4,tab1,tab2,wynik);
+}
+//maskymalne elementy z tablic
+void sumatablic(unsigned int n,int * tab1,int * tab2, int * wynik){
+    for(int i=0;i<n;i++){
+        if(tab2[i]>tab1[i]){
+            wynik[i]=tab2[i];
+        }
+        else{
+            wynik[i]=tab1[i];
+        }
+        printf("%d ",wynik[i]);
+    }
+}
+int main()
+{
+    int tab1[]={2,7,1,3};
+    int tab2[]={4,5,2,8};
+    int wynik[4];
+    sumatablic(4,tab1,tab2,wynik);
+}
+//przepisywanie tablicy c)
+void wypisz(unsigned int n,int * tab1){
+    for(int i=0;i<n;i++){
+        printf("%d ",tab1[i]);
+    }
+    printf("\n");
+}
+void zamiana(unsigned int n,int * tab1, int * tab2,int * tab3){
+int temp;
+for(int i=0;i<n;i++){
+    temp=tab2[i];
+    tab2[i]=tab1[i];
+    tab1[i]=tab3[i];
+    tab3[i]=temp;
+}
+}
+int main()
+{
+    int tab1[]={2,7,1,3};
+    int tab2[]={4,5,2,8};
+    int tab3[]={5,8,9,4};
+    zamiana(4,tab1,tab2,tab3);
+    wypisz(4,tab1);
+    wypisz(4,tab2);
+    wypisz(4,tab3);
+}
+//doklejenie do tablicy dwoch
+void wypisz(unsigned int n,double * tab1){
+    for(int i=0;i<n;i++){
+        printf("%f ",tab1[i]);
+    }
+    printf("\n");
+}
+void doklejenie(unsigned int n,double * tab1, double * tab2,double * tab3){
+for(int i=0;i<2*n;i++){
+    if(i<n){
+            tab3[i]=tab1[i];
+    }
+    else{
+        tab3[i]=tab2[i-n];
+    }
+}
+}
+int main()
+{
+    double tab1[]={2,7,1,3};
+    double tab2[]={4,5,2,8};
+    double tab3[8];
+    doklejenie(4,tab1,tab2,tab3);
+    wypisz(8,tab3);
+}
+//dwie tablice w jedna, parzyste indeksy tab2 nieparzyste tab1
+void wypisz(unsigned int n,double * tab1){
+    for(int i=0;i<n;i++){
+        printf("%f ",tab1[i]);
+    }
+    printf("\n");
+}
+void doklejenie(unsigned int n,double * tab1, double * tab2,double * tab3){
+for(int i=0;i<2*n;i++){
+    if(i%2==0){
+            tab3[i]=tab2[i/2];
+    }
+    else{
+        tab3[i]=tab1[(i-1)/2];
+    }
+}
+}
+int main()
+{
+    double tab1[]={2,7,1,3};
+    double tab2[]={4,5,2,8};
+    double tab3[8];
+    doklejenie(4,tab1,tab2,tab3);
+    wypisz(8,tab3);
+}
+//1 tab max 2 tab srednia 3 tab min
+void wypisz(unsigned int n,int * tab1){
+    for(int i=0;i<n;i++){
+        printf("%d ",tab1[i]);
+    }
+    printf("\n");
+}
+void sortowanie(unsigned int n,int * tab1, int * tab2,int * tab3){
+for(int i=0;i<n;i++){
+    int max,min,srodek;
+    if(tab1[i]>=tab2[i] && tab1[i]>=tab3[i]){
+        max=tab1[i];
+        if(tab2[i]>tab3[i]){
+            srodek=tab2[i];
+            min=tab3[i];
+        }
+        else{
+            srodek=tab3[i];
+            min=tab2[i];
+        }
+    }
+    else{
+        if(tab2[i]>tab3[i]){
+         max=tab2[i];
+        if(tab3[i]>tab1[i]){
+            srodek=tab3[i];
+            min=tab1[i];
+        }
+        else{
+            srodek=tab1[i];
+            min=tab3[i];
+        }
+        }
+            else{
+            srodek=tab1[i];
+            min=tab2[i];
+        }
+    }
+tab1[i]=max;
+tab2[i]=srodek;
+tab3[i]=min;
+}
+}
+int main()
+{
+    int tab1[]={2,7,1,3};
+    int tab2[]={4,5,1,8};
+    int tab3[]={1,6,4,6};
+    sortowanie(4,tab1,tab2,tab3);
+    wypisz(4,tab1);
+    wypisz(4,tab2);
+    wypisz(4,tab3);
+}
+// max element z tablicy jednej
+void wypisz(unsigned int n,int * tab1){
+    for(int i=0;i<n;i++){
+        printf("%d ",tab1[i]);
+    }
+    printf("\n");
+}
+int max(unsigned int n,int * tab1){
+    int wynik=tab1[0];
+    for(int i=0;i<n;i++){
+        if(tab1[i]>wynik){
+            wynik=tab1[i];
+        }
+    }
+    return wynik;
+}
+int main()
+{
+    int tab1[]={2,7,1,3};
+    printf("max: %d",max(4,tab1));
+}
+// najmniejszy element tablicy
+void wypisz(unsigned int n,int * tab1){
+    for(int i=0;i<n;i++){
+        printf("%d ",tab1[i]);
+    }
+    printf("\n");
+}
+int min(unsigned int n,int * tab1){
+    int wynik=tab1[0];
+    for(int i=0;i<n;i++){
+        if(tab1[i]<wynik){
+            wynik=tab1[i];
+        }
+    }
+    return wynik;
+}
+int main()
+{
+    int tab1[]={2,7,1,3};
+    printf("min: %d",min(4,tab1));
+}
+//max liczba wysywietla indeks tablicy
+void wypisz(unsigned int n,int * tab1){
+    for(int i=0;i<n;i++){
+        printf("%d ",tab1[i]);
+    }
+    printf("\n");
+}
+int max(unsigned int n,int * tab1){
+    int wynik=0;
+    int indeks=0;
+    for(int i=0;i<n;i++){
+        if(tab1[i]>wynik){
+            wynik=tab1[i];
+            indeks=i;
+        }
+    }
+    return indeks;
+}
+int main()
+{
+    int tab1[]={2,7,9,3};
+    printf("max indeks: %d",max(4,tab1));
+}
