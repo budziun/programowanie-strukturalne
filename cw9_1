@@ -58,6 +58,14 @@ free(t);
 void zwolnij2(unsigned int n, int t[][n]){
 free(t);
 }
+int ** alokujtrojkatna(unsigned int n){
+int **t=malloc(n*sizeof(int*));
+int i;
+for(i=0;i<n;i++){
+    t[i]=malloc((i+1)*sizeof(int));
+}
+return t;
+}
 int main()
 {
     //int **t=alokuj(3,3);
