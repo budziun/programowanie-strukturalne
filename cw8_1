@@ -1,0 +1,106 @@
+#include <stdio.h>
+///cw 5_2_9
+void wytnij(char *napis,int n,int m){
+int i,j;
+for(j=0;napis[j]!=0;j++){
+}
+if(j+1>m){
+    for(i=0;i+m<j;i++){
+        napis[n+1]=napis[m+i+1];
+    }
+}
+else if((n<j)&&(j+1<=m)){
+    napis[n]=0;
+}
+}
+int main()
+{
+    char napiszad9[40]="z tego napisu mamy cos wyciac";
+    printf(napiszad9);
+    printf("\n");
+    wytnij(napiszad9,5,15);
+    printf(napiszad9);
+    printf("\n");
+    char napiszakrotki[40]="krotki";
+    printf(napiszakrotki);
+    printf("\n");
+    wytnij(napiszakrotki,8,12);
+    printf(napiszakrotki);
+    printf("\n");
+    char napiszsredniodlugi[20]="sredni";
+    printf(napiszsredniodlugi);
+    printf("\n");
+    wytnij(napiszsredniodlugi,4,10);
+    printf(napiszsredniodlugi);
+    return 0;
+}
+#include <stdio.h>
+#include <stdbool.h>
+///cw 5_2_10 nie dziala
+void wytnij(char *napis,int n,int m){
+int i,j;
+for(j=0;napis[j]!=0;j++){}
+if(j+1>m){
+    for(i=0;i+m<j;i++){
+        napis[n+1]=napis[m+i+1];
+    }
+}
+else if((n<j)&&(j+1<=m)){
+    napis[n]=0;
+}
+}
+bool porownaj(char * napis1,char * napis2,int n){
+int i;
+for(i=0;(napis1[i]!=0)&&napis2[i]!=0;i++)
+    if(napis1[n+1]!=napis2[i])
+{
+    return false;
+}
+if(napis2[i]==0){
+    return true;
+}
+else{
+    return false;
+}
+}
+void wytnij2(char *napis1,char *napis2){
+int i,dl;
+for(dl=0;napis2[dl]!=0;dl++){}
+    for(i=0;napis1[i]!=0;i++){
+     if(porownaj(napis1,napis2,i))
+     {
+         wytnij(napis1,i,i+dl-1);
+         return;
+     }
+    }
+}
+int main()
+{
+    char napiszad101[40]="napis z ktorego ktorego wycinamy";
+    char napiszad102[40]="ktorego";
+    wytnij2(napiszad101,napiszad102);
+    printf(napiszad101);
+    return 0;
+}
+#include <stdio.h>
+#include <stdbool.h>
+///cw 5_2_13 nie dziala
+void wytnijtesame(char * napis1,char *napis2){
+int i,j;
+for(int i=0,j=0;napis1[i]!=0;i++)
+{
+    if(napis1[i]!=napis2[i]){
+        napis1[j]=napis1[i];
+        j++;
+    }
+}
+napis1[j]=0;
+}
+int main()
+{
+    char napiszad131[40]="arbuzek";
+    char napiszad132[40]="arbiter";
+    wytnijtesame(napiszad131,napiszad132);
+    printf(napiszad131);
+    return 0;
+}
