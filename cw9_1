@@ -48,8 +48,16 @@ for(i=0;i<n;i++){
     }
 }
 }
-
-
+void zwolnij(unsigned int n, unsigned int m,int **t){
+int i;
+for(i=0;i<n;i++){
+ free(t[i]);
+}
+free(t);
+}
+void zwolnij2(unsigned int n, int t[][n]){
+free(t);
+}
 int main()
 {
     //int **t=alokuj(3,3);
