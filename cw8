@@ -216,28 +216,39 @@ int main()
     maleduze(nap1);
     printf(nap1);
 }
-// 5_2_9 nie dziala
-int dlugosc(char *napis){
-    int i=0;
-    while(napis[i]!=0)
-        i++;
-    return i;
-    }
-void wypisz(char * napis){
-printf("%s\n",napis);
+#include <stdio.h>
+///cw 5_2_9 nie dziala
+void wytnij(char *napis,int n,int m){
+int i,j;
+for(j=0;napis[j]!=0;j++){
+
 }
-void wytnij(char * nap1,int n,int m){
-    int i,j;
-    char wynik[50];
-    for(i=n;i<=m;i++){
-    wynik[i]=nap1[i];
+if(j+1>m){
+    for(i=0;i+m<j;j++){
+        napis[n+1]=napis[m+i+1];
     }
-    printf(wynik);
+}
+else if((n<j)&&(j+1<=m)){
+    napis[n]=0;
+}
 }
 int main()
 {
-    char nap1[50]="informatyka";
-    printf(nap1);
+    char napiszad9[40]="z tego napisu mamy cos wyciac";
+    printf(napiszad9);
     printf("\n");
-    wytnij(nap1,3,6);
+    wytnij(napiszad9,5,15);
+    printf(napiszad9);
+    printf("\n");
+    char napiszakrotki[40]="krotki";
+    printf(napiszakrotki);
+    printf("\n");
+    wytnij(napiszakrotki,8,12);
+    printf(napiszakrotki);
+    char napiszsredniodlugi[20]="sredni";
+    printf(napiszsredniodlugi);
+    printf("\n");
+    wytnij(napiszsredniodlugi,4,10);
+    printf(napiszsredniodlugi);
+    return 0;
 }
