@@ -104,3 +104,52 @@ int main()
     printf(napiszad131);
     return 0;
 }
+#include <stdio.h>
+///cw 5_2_20
+char * godzina(int godz,int min,int sec){
+char * wynik=malloc(9*sizeof(char));
+sprintf(wynik,"%02d:%02d:%02d",godz,min,sec);
+return wynik;
+}
+int main()
+{
+    printf(godzina(14,19,5));
+    return 0;
+}
+#include <stdio.h>
+#include <wchar.h>
+///cw 5_2_26
+void maleduze(char * napis){
+int i;
+for(i=0;napis[i]!=0;i++){
+napis[i]=towupper(napis[i]);
+}
+}
+int main()
+{
+    char napis1[80]="Adi ma kota";
+    printf(napis1);
+    printf("\n");
+    maleduze(napis1);
+    printf(napis1);
+    return 0;
+}
+#include <stdio.h>
+#include <wchar.h>
+#include <string.h>
+///cw 5_2_22
+char * sklej(char * napis1,char *napis2,char * napis3){
+char * wyn=malloc((strlen(napis1)+strlen(napis2)+strlen(napis3)+1)*sizeof(char));
+strcpy(wyn,napis1);
+strcat(wyn,napis2);
+strcat(wyn,napis3);
+return wyn;
+}
+int main()
+{
+    char napis1[80]="Adi ma kota";
+    char napis2[30]=" i nie jest szczesliwy";
+    char napis3[40]=" bo studiuje informatyke";
+    printf(sklej(napis1,napis2,napis3));
+    return 0;
+}
