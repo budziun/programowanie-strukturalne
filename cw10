@@ -204,4 +204,10 @@ int t[4][3]={{4,1,8},{2,3,2},{3,10,6},{5,4,2}};
 /// wszystkie zadania z tablic do kolokwium omowione
 //na next zajeciach zadania mniej wazne z tablic 
 //zad dodatkowe
-
+/// zrob funkcje ktora bedzie int ** tarcza_do_rzutek(unsigned int n)
+/// jesli wywowlany na 1x1 => 1
+/// 2x2 => 11 11 
+/// 3x3 => 111 121 111
+/// 4x4 => 1111 1221 1221 1111
+/// 5x5 => 11111 12221 12321 12221 11111
+///itd. (te liczby to macierze, spacja oznacza nowy wiersz)
