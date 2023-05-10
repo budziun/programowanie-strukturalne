@@ -54,11 +54,11 @@ for(i=0;i<n;i++){
 }
 int main()
 {
-    /*int **t=alokuj(3,2);
+    int **t=alokuj(3,2);
     wczytaj(t,3,2);
     wypisz(t,3,2);
     zeruj(t,3,2);
-    wypisz(t,3,2); */
+    wypisz(t,3,2); 
     int t[3][7]={{20,2,5,7,8,-11,-81},{2,8,31,14}};
     wypisz2(3,7,t);
     zeruj3(3,7,t);
@@ -183,4 +183,25 @@ for(i=0;i<n;i++){
 ///////// ** tablica dwuwymiarowa ///////////////////
 ///////// t[][] tablica tablic /////////////////////
 //6.2.23
+void zamianawierszy(unsigned int n,unsigned int m,int t[][m]){
+int i,j;
+int pom;
+for(j=0;j<m;j++){
+    pom=t[n-1][j];
+    for(i=n-1;i>0;i--){
+        t[i][j]=t[i-1][j];
+    }
+    t[0][j]=pom;
+}
+}
+//main
+int t[4][3]={{4,1,8},{2,3,2},{3,10,6},{5,4,2}};
+    wypisz2(4,3,t);
+    zamianawierszy(4,3,t);
+    wypisz2(4,3,t);
+    return 0
+    ///// duze prawdopodobienstwo ze pojawi sie zadanie tego typu na kolokwium (troche zmienione niz na lekcji np moze dwa w dol czy cos)
+/// wszystkie zadania z tablic do kolokwium omowione
+//na next zajeciach zadania mniej wazne z tablic 
+//zad dodatkowe
 
