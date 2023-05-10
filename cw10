@@ -2,11 +2,11 @@
 //6.2.10
 #include <stdio.h>
 #include <stdlib.h>
-void wypisz(int **t,unsigned int n,unsigned int m){
+void wypisz(int **t, unsigned int n, unsigned int m){
     int i,j;
     for(i=0;i<n;i++){
-        for(j=0;j<n;j++){
-         printf("%d\t",t[i],t[j]);
+        for(j=0;j<m;j++){
+            printf("%d\t", t[i][j]);
         }
         printf("\n");
     }
@@ -78,7 +78,7 @@ for(i=0;i<n;i++){
 printf("suma: %d",suma2(t,3,2));
 /// na kolokwium zadanie: jezeli beda poweuidzmy 5 takich samych wynikow to zwroc nie skrajny wieresz (czyli nie pierwszy i nie ostatni)
 // robilismy 6.2.16 ale to jest to samo co 17
-//6.2.17
+//6.2.16 ale na tablicy 2wymiarowej
 int max(unsigned int n,unsigned int m,int t[][m]){
 int i,j;
 int max=0;
@@ -101,5 +101,65 @@ for(i=0;i<n;i++){
 int t[4][3]={{4,1,8},{2,3,2},{3,10,6},{5,4,2}};
     wypisz2(4,3,t);
     printf("indeks %d",max(4,3,t));
-//6.2.17 srednia
+//6.2.17
+double max(unsigned int n,unsigned int m,int t[][m]){
+int i,j;
+int suma,max;
+for(i=0;i<n;i++){
+    for(j=0;j<m;j++){
+        suma=0;
+        suma=suma+t[i][j];
+    }
+    if(i==0){
+        max=suma;
+    }
+    if(max<suma){
+        max=suma;
 
+    }
+}
+return ((double)(max)/m);
+}
+//main
+printf("wartosc %lf",max(4,3,t));
+//6.2.19 nie dziala
+void przepisz(int **t,int **r,unsigned int m,unsigned int n){
+int i,j;
+for(i=0;i<n;i++){
+    for(j=0;j<m;j++){
+        r[i][j]=t[i][j];
+    }
+}
+}
+//main 
+    int **t=alokuj(3,3);
+    int **r=alokuj(3,3);
+    wczytaj(t,3,3);
+    wypisz(t,3,3);
+    przepisz(t,r,3,3);
+    wypisz(r,3,3);
+//6.2.20
+void zamiana(int **t,int **r,unsigned int m,unsigned int n){
+int i,j;
+int pom;
+for(i=0;i<n;i++){
+    for(j=0;j<m;j++){
+        pom=r[i][j];
+        r[i][j]=t[i][j];
+        t[i][j]=pom;
+    }
+}
+}
+//main 
+
+    int **t=alokuj(3,3);
+    int **r=alokuj(3,3);
+    wczytaj(t,3,3);
+    wypisz(t,3,3);
+    wczytaj(r,3,3);
+    wypisz(r,3,3);
+    zamiana(t,r,3,3);
+    wypisz(t,3,3);
+    wypisz(r,3,3);
+    return 0;
+//6.2.21
