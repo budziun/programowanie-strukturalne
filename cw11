@@ -81,6 +81,10 @@ return suma;
 struct zespolone iloczyn(struct zespolone liczba1,struct zespolone liczba2){
     // do zrobienia
 };
+struct zespolone sprzezenie(struct zespolone liczba1,struct zespolone liczba2){
+//? nwm
+};
+
 int main()
 {
     struct trojkat t1;
@@ -118,5 +122,5 @@ int main()
     struct punkt tab[3]={p1,p2,p3};
     printf("wynik: %f\n",minimum(tab,3));
     //7.2.7
-
+    ///brakuje wywolania do funkcji od zadan 7.2.7
 }
