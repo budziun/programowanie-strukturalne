@@ -84,7 +84,18 @@ struct zespolone iloczyn(struct zespolone liczba1,struct zespolone liczba2){
 struct zespolone sprzezenie(struct zespolone liczba1,struct zespolone liczba2){
 //? nwm
 };
-
+double modul_liczby_zespolonej(struct zespolone liczba){
+return pow((liczba.a*liczba.a+liczba.b*liczba.b),0.5);
+}
+//7.2.10
+union super_int{
+int i;
+unsigned int u;
+};
+struct wiele_int{
+int i;
+unsigned int u;
+};
 int main()
 {
     struct trojkat t1;
@@ -122,5 +133,23 @@ int main()
     struct punkt tab[3]={p1,p2,p3};
     printf("wynik: %f\n",minimum(tab,3));
     //7.2.7
-    ///brakuje wywolania do funkcji od zadan 7.2.7
+    struct zespolone X;
+    X.a=2;
+    X.b=7;
+    wyswietl(X);
+    printf("Modul liczby zespolonej wynosi %f\n",modul_liczby_zespolonej(X));
+    //7.2.10
+    struct wiele_int XX;
+    union super_int YY;
+    printf("%d\n",sizeof(int));
+    printf("%d\n",sizeof(unsigned int));
+    //struktura
+    printf("%d\n",sizeof(XX));
+    printf("%p\n",&XX);
+    printf("%p\n",&XX.i);
+    printf("%p\n",&XX.u);
+    //unia
+    printf("%d\n",sizeof(YY));
+    printf("%p\n",&YY.i);
+    printf("%p\n",&YY.u);
 }
