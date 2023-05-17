@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+//7.2.1
 struct trojkat{
 double a, b, c;
 };
@@ -18,24 +19,104 @@ double pole(struct trojkat t)
 }
 void jaki_trojkat(struct trojkat t){
 if(pow(t.a,2) + pow(t.b,2)>pow(t.c,2)){
-    printf("ostry");
+    printf("ostry\n");
 }
 if(pow(t.a,2) + pow(t.b,2)==pow(t.c,2)){
-    printf("prosty");
+    printf("prosty\n");
 }
 if(pow(t.a,2) + pow(t.b,2)<pow(t.c,2)){
-    printf("rozwarty");
+    printf("rozwarty\n");
 }
 }
+//7.2.2
+void wypisz(struct trojkat tri){
+    printf("%f\n",tri.a);
+    printf("%f\n",tri.b);
+    printf("%f\n",tri.c);
+    printf("\n");
+}
+void przepisz(struct trojkat t1,struct trojkat *t2){
+    *t2=t1;
+}
+//7.2.3
+struct punkt{
+double x,y,z;
+};
+double odleglosc(struct punkt p,struct punkt q){
+    return sqrt((p.x-q.x)*(p.x-q.x)+(p.y-q.y)*(p.y-q.y)+(p.z-q.z)*(p.z-q.z));
+}
+double minimum(struct punkt tab[],int n){
+ int i,j;
+ double pom;
+ double min=odleglosc(tab[0],tab[1]);
+ for(i=0;i<n-1;i++){
+    for(j=i+1;j<n;j++){
+        pom=odleglosc(tab[i],tab[j]);
+    }
+    if(pom<min){
+        min=pom;
+    }
+ }
+ return min;
+}
+//4,5,6 dom
+//7.2.7
+struct zespolone{
+double a;
+double b;
+};
+void wyswietl(struct zespolone liczba){
+printf("%f + %f i\n",liczba.a,liczba.b);
+}
+void wczytaj_liczbe_zespolona(struct zespolone liczba){
+scanf("%lf",&liczba.a);
+scanf("%lf",&liczba.b);
+}
+struct zespolone dodaj(struct zespolone liczba1,struct zespolone liczba2){
+struct zespolone suma;
+suma.a=liczba1.a+liczba2.a;
+suma.b=liczba1.b+liczba2.b;
+return suma;
+};
+struct zespolone iloczyn(struct zespolone liczba1,struct zespolone liczba2){
+    // do zrobienia
+};
 int main()
 {
-    struct trojkat ti;
-    ti.a=4;
-    ti.b=7;
-    ti.c=6;
-    printf("obwod: %f\n",obwod(ti));
+    struct trojkat t1;
+    t1.a=4;
+    t1.b=7;
+    t1.c=6;
+    printf("obwod: %f\n",obwod(t1));
     printf("%d\n",sizeof(double));
     printf("%d\n",sizeof(struct trojkat));
-    printf("pole: %f\n",pole(ti));
-    jaki_trojkat(ti);
+    printf("pole: %f\n",pole(t1));
+    jaki_trojkat(t1);
+    struct trojkat t2;
+    t2.a=12;
+    t2.b=21;
+    t2.c=1;
+    struct trojkat *wsk2=&t2;
+    wypisz(t1);
+    wypisz(t2);
+    przepisz(t1,wsk2);
+    wypisz(t1);
+    wypisz(t2);
+    struct punkt p1;
+    p1.x=1;
+    p1.y=7;
+    p1.z=2;
+    struct punkt p2;
+    p2.x=4;
+    p2.y=9;
+    p2.z=0;
+    struct punkt p3;
+    p3.x=2;
+    p3.y=5;
+    p3.z=8;
+    printf("odleglosc: %f\n",odleglosc(p1,p3));
+    struct punkt tab[3]={p1,p2,p3};
+    printf("wynik: %f\n",minimum(tab,3));
+    //7.2.7
+
 }
