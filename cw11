@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+struct trojkat{
+double a, b, c;
+};
+double obwod(struct trojkat t)
+{
+    return t.a+t.b+t.c;
+}
+double pole(struct trojkat t)
+{
+    double p;
+    p=(t.a+t.b+t.c)/2;
+    double pole;
+    pole= sqrt(p*(p-t.a)*(p-t.b)*(p-t.c));
+    return pole;
+}
+void jaki_trojkat(struct trojkat t){
+if(pow(t.a,2) + pow(t.b,2)>pow(t.c,2)){
+    printf("ostry");
+}
+if(pow(t.a,2) + pow(t.b,2)==pow(t.c,2)){
+    printf("prosty");
+}
+if(pow(t.a,2) + pow(t.b,2)<pow(t.c,2)){
+    printf("rozwarty");
+}
+}
+int main()
+{
+    struct trojkat ti;
+    ti.a=4;
+    ti.b=7;
+    ti.c=6;
+    printf("obwod: %f\n",obwod(ti));
+    printf("%d\n",sizeof(double));
+    printf("%d\n",sizeof(struct trojkat));
+    printf("pole: %f\n",pole(ti));
+    jaki_trojkat(ti);
+}
