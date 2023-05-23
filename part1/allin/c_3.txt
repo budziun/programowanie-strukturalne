@@ -1,0 +1,123 @@
+//liczba pierwsza
+#include <stdio.h>
+#include <stdlib.h>
+int isPrime(int number) {
+    int i;
+
+    for (i = 2; i < number; i++) {
+        if (number % i == 0) {
+            return 0; // Liczba nie jest pierwsza
+        }
+    }
+
+    return 1; // Liczba jest pierwsza
+}
+
+int main() {
+    printf("%d",isPrime(13));
+    return 0;
+}
+//palindrom
+int reverseNumber(int number) {
+    int reversedNumber = 0, remainder, copy;
+
+    copy = number;
+
+    while (copy != 0) {
+        remainder = copy % 10;
+        reversedNumber = reversedNumber * 10 + remainder;
+        copy /= 10;
+    }
+
+    return reversedNumber;
+}
+
+int isPalindrome(int number) {
+    int reversedNumber = reverseNumber(number);
+
+    if (number == reversedNumber) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    printf("%d",isPalindrome(121));
+    return 0;
+}
+//silnia rekurencyjnie
+unsigned int factorial(unsigned int n) {
+    if (n == 0) {
+        return 1; // Warunek zakończenia rekurencji: 0! = 1
+    } else {
+        return n * factorial(n - 1); // Wywołanie rekurencyjne: n! = n * (n-1)!
+    }
+}
+int main() {
+    printf("%d",factorial(5));
+}
+// nwd i nww
+int NWD(int a, int b) {
+    int temp;
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int NWW(int a, int b) {
+    int nwd = NWD(a, b);
+    int nww = (a * b) / nwd;
+    return nww;
+}
+
+int main() {
+    int nwd = NWD(12, 18);
+    int nww = NWW(12, 18);
+
+    printf("NWD: %d\n", nwd);
+    printf("NWW: %d\n", nww);
+
+    return 0;
+}
+// odwracanie tablicy
+#include <stdlib.h>
+void reverseArray(int arr[], int size) {
+    int start = 0;
+    int end = size - 1;
+    int temp;
+
+    while (start < end) {
+        temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int i;
+
+    printf("Tablica przed odwróceniem: ");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    reverseArray(arr, size);
+
+    printf("Tablica po odwróceniu: ");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
