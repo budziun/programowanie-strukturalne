@@ -76,6 +76,54 @@ while(Lista!=NULL){
 }
 return min;
 }
+//7_3_5
+struct element * dodajw(struct element * Lista,
+                        struct element * elem,int a){
+    struct element *wsk=malloc(sizeof(struct element));
+    wsk->i=a;
+    if(elem=NULL){
+        wsk->next=Lista;
+        Lista=wsk;
+    }
+    else{
+        wsk->next=elem->next;
+        elem->next=wsk;
+    }
+    return Lista;
+};
+//7_3_7
+struct element * usun(struct element * Lista,int a){
+struct element * wsk,*wsk2;
+if(Lista==NULL){
+    return Lista;
+}
+wsk=Lista;
+if(Lista->i==a){
+    Lista-Lista->next;
+    free(wsk);
+}
+else{
+    while((wsk->next!=NULL)&&(wsk->next->i!=a)){
+        wsk=wsk->next;
+    }
+    if(wsk->next!=NULL){
+        wsk2=wsk->next;
+        wsk->next=wsk2->next;
+        free(wsk2);
+    }
+}
+return wsk2;
+};
+//concatonacja dwoch list
+//7_3_30
+struct element* konkatenacja(struct element * Lista1,struct element * Lista2){
+struct element* wsk=Lista1;
+while(wsk->next!=NULL){
+    wsk=wsk->next;
+}
+wsk->next=Lista2;
+return Lista1;
+};
 int main()
 {
     struct element * lista=utworz();
