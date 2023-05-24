@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+//7_3_1
+struct element{
+int i;
+struct element *next;
+};
+struct element * utworz(){
+return NULL;
+};
+//7_3_2
+void wyczysc(struct element* Lista){
+struct element *wsk=Lista;
+while(Lista!=NULL){
+    Lista=Lista->next;
+    free(wsk);
+    wsk=Lista;
+}
+}
+//7_3_3
+struct element * dodajnapoczatek(struct element* Lista,int a){
+struct element *wsk=malloc(sizeof(struct element));
+wsk->i=a;
+wsk->next=Lista;
+return wsk;
+};
+//7_3_4
+struct element * dodajnakoniec(struct element* Lista,int a){
+struct element *wsk;
+if(Lista==NULL){
+    Lista=wsk=malloc(sizeof(struct element));
+}
+else{
+    wsk=Lista;
+    while(wsk->next!=NULL){
+        wsk=wsk->next;
+        wsk->next=malloc(sizeof(struct element));
+    }
+    wsk->i=a;
+    wsk->next=NULL;
+    return Lista;
+}
+};
+int dlugosclisty(struct element *Lista){
+    int sum=0;
+    while(Lista!=NULL){
+        sum=sum+1;
+        Lista=Lista->next;
+    }
+    return sum;
+}
+//7_3_24
+int suma(struct element *Lista){
+    int sum=0;
+    while(Lista!=NULL){
+        sum=sum+Lista->i;
+        Lista=Lista->next;
+    }
+    return sum;
+}
+//7_3_
+void wypiszelementy(struct element * Lista){
+while(Lista!=NULL){
+    printf("%d ",Lista->i);
+    Lista=Lista->next;
+}
+printf("\n");
+}
+int min(struct element * Lista){
+int min=Lista->i;
+while(Lista!=NULL){
+    if(Lista->i<min){
+        min=Lista->i;
+    }
+    Lista=Lista->next;
+}
+return min;
+}
+int main()
+{
+    struct element * lista=utworz();
+    lista=dodajnakoniec(lista,4);
+    wypiszelementy(lista);
+    lista=dodajnakoniec(lista,15);
+    wypiszelementy(lista);
+    lista=dodajnakoniec(lista,3);
+    wypiszelementy(lista);
+    lista=dodajnakoniec(lista,-7);
+    wypiszelementy(lista);
+    lista=dodajnakoniec(lista,9);
+    wypiszelementy(lista);
+    lista=dodajnakoniec(lista,-2);
+    wypiszelementy(lista);
+    lista=dodajnapoczatek(lista,6);
+    wypiszelementy(lista);
+    printf("%d\n\n",suma(lista));
+    printf("%d\n\n",min(lista));
+    return 0;
+}
